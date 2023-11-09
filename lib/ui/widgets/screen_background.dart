@@ -13,7 +13,7 @@ class ScreenBackground extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           height: double.infinity,
-          child: SvgPicture.asset(AssetsUtils.backgroundSVG, fit: BoxFit.fitHeight,),
+          child: SvgPicture.asset(AssetsUtils.backgroundSVG, fit: BoxFit.cover,),
         ),
         child,
       ],
