@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:task_managet/ui/screens/email_verification_screen.dart';
 import '../utils/assets_utils.dart';
 import '../widgets/screen_background.dart';
 
@@ -16,24 +17,26 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-           Text(
-            'Get Started With',
-            // style: TextStyle(
-            //     fontSize: 24,
-            //     color: Colors.black,
-            //     fontWeight: FontWeight.w500,
-            //     ),
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          const SizedBox(height: 16,),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 150,),
+              Text(
+                'Get Started With',
+                // style: TextStyle(
+                //     fontSize: 24,
+                //     color: Colors.black,
+                //     fontWeight: FontWeight.w500,
+                //     ),
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 16,),
               TextFormField(
+                keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
                   hintText: 'Email',
                 ),
@@ -54,26 +57,40 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 24,),
-          Center(
-            child: InkWell(
-              onTap: () {},
-              child: Text(
-                'Forgot Password?',
-                style: TextStyle(color: Colors.grey),
+              Center(
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EmailVerificationScreen(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Forgot Password?',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ),
               ),
-            ),
-          ),
-          Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don't have an account?", style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 0.6,
-                  ),),
-                  TextButton(onPressed: (){}, child: Text('Sign Up'),),
+                  const Text(
+                    "Don't have an account?",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0.6,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text('Sign Up'),
+                  ),
                 ],
               ),
             ],
+            ),
           ),
         ),
       )
