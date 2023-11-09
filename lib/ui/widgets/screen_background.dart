@@ -15,7 +15,8 @@ class ScreenBackground extends StatelessWidget {
           height: double.infinity,
           child: SvgPicture.asset(AssetsUtils.backgroundSVG, fit: BoxFit.cover,),
         ),
-        child,
+        //child,
+        SafeArea(child: child) ///*** this code for getting a "SafeArea" for every Screen
       ],
     );
   }
